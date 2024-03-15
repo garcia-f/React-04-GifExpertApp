@@ -4,7 +4,7 @@ import { useState } from "react"
 
 export const AddCategory = ({ setCategories }) => {
 
-	const [ inputValue, setInputValue ] = useState('One Pusch')
+	const [ inputValue, setInputValue ] = useState('')
 
 	const onInputChange = ({ target }) => {
 		setInputValue( target.value );
@@ -16,7 +16,6 @@ export const AddCategory = ({ setCategories }) => {
 		if( inputValue.trim().length <=  1 ) return;
 
 		setCategories( categories => [ inputValue, ...categories ]);
-		//! no anda
 		setInputValue('');
 		
 	}
@@ -25,8 +24,9 @@ export const AddCategory = ({ setCategories }) => {
 		<form onSubmit={ onSubmit }>
 			<input 
 				type="text" 
-				placeholder={ inputValue }
+				placeholder="Buscar gifs"
 				onChange={ onInputChange }
+				value={inputValue}
 			/>
 		</form>
   )
